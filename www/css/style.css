@@ -1,1 +1,9 @@
 /* Empty. Add your own CSS if you like */
+
+img.logo{
+    margin-left:auto;
+    margin-right:auto;
+    display:block;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
