@@ -250,3 +250,5 @@ css/**/*.css.map
 
 .vscode/
 npm-debug.log*
+
+platforms/
