@@ -1,7 +1,6 @@
 /// <reference path="../typings/tsd.d.ts" />
 
-module IonicWebcal.Controllers {
-
+module IonicWebcal {
     export class AppController {
 
         constructor($scope: ng.IScope, $ionicModal, $timeout: ng.ITimeoutService) {
@@ -13,5 +12,4 @@ module IonicWebcal.Controllers {
     angular
         .module('IonicWebcal')
         .controller('AppController', AppController);
-
 }

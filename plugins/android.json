@@ -24,7 +24,14 @@
         },
         "ionic-plugin-keyboard": {
             "PACKAGE_NAME": "com.ionicframework.ionicwebcal836549"
+        },
+        "cordova-plugin-http": {
+            "PACKAGE_NAME": "com.ionicframework.ionicwebcal836549"
         }
     },
-    "dependent_plugins": {}
+    "dependent_plugins": {
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.ionicframework.ionicwebcal836549"
+        }
+    }
 }

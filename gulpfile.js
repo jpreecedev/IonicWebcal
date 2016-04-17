@@ -40,10 +40,11 @@ gulp.task('install', ['git-check'], function() {
     });
 });
 
-gulp.task('compile', function(){
+gulp.task('compile', function(){  
   gulp.src(paths.src)
   .pipe(typescript({
-     emitError: false
+     emitError: false,
+     module: "commonjs"
   }))
   .pipe(gulp.dest('www/js/'))
 });

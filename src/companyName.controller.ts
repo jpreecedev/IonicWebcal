@@ -1,22 +1,35 @@
 /// <reference path="../typings/tsd.d.ts" />
 
-module IonicWebcal.Controllers {
-
+module IonicWebcal {
     export class CompanyNameController {
 
-        private uuid: string = "";
+        private uuid: string = "abc123";
 
-        constructor(private $cordovaDevice: ngcordova.IDevice, private $ionicPopup: ionic.popup.IonicPopupService, private $ionicPlatform: ionic.platform.IonicPlatformService) {
+        static $inject = ["$cordovaDevice", "$ionicPopup", "$ionicPlatform", "$location", "ApiService"];
+
+        constructor(private $cordovaDevice: ngcordova.IDevice, private $ionicPopup: ionic.popup.IonicPopupService, private $ionicPlatform: ionic.platform.IonicPlatformService, private $location: ng.ILocationService, private ApiService: any) {
             $ionicPlatform.ready(() => {
-                this.uuid = $cordovaDevice.getUUID();
+                try {
+                    this.uuid = $cordovaDevice.getUUID();
+                } catch (ex) {
+                }
             });
         }
 
-        submit() {
-            var alertPopup = this.$ionicPopup.alert({
-                title: 'Don\'t eat that!',
-                template: this.uuid
-            });
+        submit(companyName: string) {
+            this.ApiService.authenticate(companyName, this.uuid).then(() => {
+                this.$ionicPopup.alert({
+                    title: "Company name has been saved.",
+                    template: "Company name has been saved."
+                });
+                this.$location.path("#/dashboard");
+            })
+                .catch((msg: any) => {
+                    this.$ionicPopup.alert({
+                        title: "Unable to authenticate device",
+                        template: "Unable to authenticate device, please contact customer support.\n\n" + JSON.stringify(msg)
+                    });
+                });
         }
 
     }
