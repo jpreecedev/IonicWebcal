@@ -1,5 +1,19 @@
 <ion-view view-title="Company Name">
-  <ion-content>
-    <img src="img/webcal-medium.png" class="logo" />
-  </ion-content>
+	<ion-content ng-controller="CompanyNameController as vm">
+		<img src="img/webcal-medium.png" class="logo" />
+
+		<form method="POST" ng-submit="vm.submit($event, companyName)">
+
+			<div class="list">
+				<label class="item item-input">
+					<input type="text" placeholder="Company Name" ng-model="companyName">
+				</label>
+			</div>
+			<div class="padding">
+				<button class="button button-block button-positive" type="submit">Save &amp; Continue</button>
+			</div>
+
+		</form>
+
+	</ion-content>
 </ion-view>
