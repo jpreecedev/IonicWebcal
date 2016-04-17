@@ -252,3 +252,4 @@ css/**/*.css.map
 npm-debug.log*
 
 platforms/
+node_modules/
